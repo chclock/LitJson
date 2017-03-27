@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitJson", "LitJson\LitJson.csproj", "{A862EE00-72B5-4695-8F0D-756CA0D65BE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitJson.Test", "LitJson.Test\LitJson.Test.csproj", "{EB16E757-DB2E-4D50-B9FC-F6870B6FA90D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitJson.Benchmarks", "LitJson.Benchmarks\LitJson.Benchmarks.csproj", "{62DE3A3A-DC15-4454-B02F-1DBC677CE007}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A862EE00-72B5-4695-8F0D-756CA0D65BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A862EE00-72B5-4695-8F0D-756CA0D65BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A862EE00-72B5-4695-8F0D-756CA0D65BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A862EE00-72B5-4695-8F0D-756CA0D65BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB16E757-DB2E-4D50-B9FC-F6870B6FA90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB16E757-DB2E-4D50-B9FC-F6870B6FA90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB16E757-DB2E-4D50-B9FC-F6870B6FA90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB16E757-DB2E-4D50-B9FC-F6870B6FA90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62DE3A3A-DC15-4454-B02F-1DBC677CE007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DE3A3A-DC15-4454-B02F-1DBC677CE007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DE3A3A-DC15-4454-B02F-1DBC677CE007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DE3A3A-DC15-4454-B02F-1DBC677CE007}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

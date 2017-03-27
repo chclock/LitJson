@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Benchmark.cs" />
+    <Compile Remove="BmCommon.cs" />
+    <Compile Remove="BmJayrockExport.cs" />
+    <Compile Remove="BmJayrockImport.cs" />
+    <Compile Remove="BmJayrockOutput.cs" />
+    <Compile Remove="BmJayrockReader.cs" />
+    <Compile Remove="BmJayrockWriter.cs" />
+    <Compile Remove="BmLitJsonExport.cs" />
+    <Compile Remove="BmLitJsonImport.cs" />
+    <Compile Remove="BmLitJsonOutput.cs" />
+    <Compile Remove="BmLitJsonReader.cs" />
+    <Compile Remove="BmLitJsonWriter.cs" />
+    <Compile Remove="BmNewtonsoftExport.cs" />
+    <Compile Remove="BmNewtonsoftImport.cs" />
+    <Compile Remove="BmNewtonsoftOutput.cs" />
+    <Compile Remove="BmNewtonsoftReader.cs" />
+    <Compile Remove="BmNewtonsoftWriter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="GNUmakefile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LitJson\LitJson.csproj" />
+  </ItemGroup>
+
+</Project>
