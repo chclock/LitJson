@@ -32,69 +32,81 @@ namespace LitJson.Test
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void ErrorExcessDataTest()
         {
-            JsonWriter writer = new JsonWriter();
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                JsonWriter writer = new JsonWriter();
 
-            writer.WriteArrayStart();
-            writer.Write(true);
-            writer.WriteArrayEnd();
-            writer.Write(false);
+                writer.WriteArrayStart();
+                writer.Write(true);
+                writer.WriteArrayEnd();
+                writer.Write(false);
+            });
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void ErrorArrayClosingTest()
         {
-            JsonWriter writer = new JsonWriter();
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                JsonWriter writer = new JsonWriter();
 
-            writer.WriteArrayStart();
-            writer.Write(true);
-            writer.WriteObjectEnd();
+                writer.WriteArrayStart();
+                writer.Write(true);
+                writer.WriteObjectEnd();
+            });
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void ErrorNoArrayOrObjectTest()
         {
-            JsonWriter writer = new JsonWriter();
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                JsonWriter writer = new JsonWriter();
 
-            writer.Write(true);
+                writer.Write(true);
+            });
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void ErrorObjectClosingTest()
         {
-            JsonWriter writer = new JsonWriter();
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                JsonWriter writer = new JsonWriter();
 
-            writer.WriteObjectStart();
-            writer.WritePropertyName("foo");
-            writer.Write("bar");
-            writer.WriteArrayEnd();
+                writer.WriteObjectStart();
+                writer.WritePropertyName("foo");
+                writer.Write("bar");
+                writer.WriteArrayEnd();
+            });
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void ErrorPropertyExpectedTest()
         {
-            JsonWriter writer = new JsonWriter();
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                JsonWriter writer = new JsonWriter();
 
-            writer.WriteObjectStart();
-            writer.Write(10);
-            writer.WriteObjectEnd();
+                writer.WriteObjectStart();
+                writer.Write(10);
+                writer.WriteObjectEnd();
+            });
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void ErrorValueExpectedTest()
         {
-            JsonWriter writer = new JsonWriter();
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                JsonWriter writer = new JsonWriter();
 
-            writer.WriteObjectStart();
-            writer.WritePropertyName("foo");
-            writer.WriteObjectEnd();
+                writer.WriteObjectStart();
+                writer.WritePropertyName("foo");
+                writer.WriteObjectEnd();
+            });
         }
 
         [Fact]
@@ -150,13 +162,15 @@ namespace LitJson.Test
         }
 
         [Fact]
-        //[ExpectedException (typeof (ArgumentNullException))]
         public void NullWriterTest()
         {
-            TextWriter text_writer = null;
-            JsonWriter writer = new JsonWriter(text_writer);
+            Assert.Throws(typeof(ArgumentNullException), () =>
+            {
+                TextWriter text_writer = null;
+                JsonWriter writer = new JsonWriter(text_writer);
 
-            writer.Write(123);
+                writer.Write(123);
+            });
         }
 
         [Fact]

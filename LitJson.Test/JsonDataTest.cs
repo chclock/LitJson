@@ -190,27 +190,26 @@ namespace LitJson.Test
         }
 
         [Fact]
-        //[ExpectedException(typeof(InvalidOperationException))]
         public void GetKeysInvalidTypeTest()
         {
-            JsonData data = new JsonData();
-            data.Add(42);  // turns it into an array
+            Assert.Throws(typeof(InvalidOperationException), () =>
+            {
+                JsonData data = new JsonData();
+                data.Add(42);  // turns it into an array
 
-            // .. but an array doesn't have keys
-            ICollection<string> keys = data.Keys;
-            Assert.NotNull(keys);
+                // .. but an array doesn't have keys
+                ICollection<string> keys = data.Keys;
+                Assert.NotNull(keys);
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(InvalidCastException))]
         public void InvalidCastTest()
         {
-            JsonData data = 35;
-
-            string str = (string)data;
-
-            if (str != (string)data)
-                str = (string)data;
+            Assert.Throws(typeof(InvalidCastException), ()=> {
+                JsonData data = 35;
+                string str = (string)data;
+            });
         }
 
         [Fact]

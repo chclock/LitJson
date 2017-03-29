@@ -758,7 +758,9 @@ namespace LitJson.Test
         //[ExpectedException(typeof(JsonException))]
         public void ImportObjectNonMembersTest()
         {
-            string json = @"
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = @"
 {
     ""title""  : ""First"",
 
@@ -770,18 +772,20 @@ namespace LitJson.Test
 
 }";
 
-            JsonReader reader = new JsonReader(json);
-            reader.SkipNonMembers = false;
+                JsonReader reader = new JsonReader(json);
+                reader.SkipNonMembers = false;
 
-            UiWindow window = JsonMapper.ToObject<UiWindow>(reader);
-            window.title = "Unreachable";
+                UiWindow window = JsonMapper.ToObject<UiWindow>(reader);
+                window.title = "Unreachable";
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ImportStrictCommentsTest()
         {
-            string json = @"
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = @"
                 [
                     /* This is a comment */
                     1,
@@ -789,28 +793,31 @@ namespace LitJson.Test
                     3
                 ]";
 
-            JsonReader reader = new JsonReader(json);
-            reader.AllowComments = false;
+                JsonReader reader = new JsonReader(json);
+                reader.AllowComments = false;
 
-            JsonData data = JsonMapper.ToObject(reader);
+                JsonData data = JsonMapper.ToObject(reader);
 
-            if (data.Count != 3)
-                data = JsonMapper.ToObject(reader);
+                if (data.Count != 3)
+                    data = JsonMapper.ToObject(reader);
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ImportStrictStringsTest()
         {
-            string json = "[ 'Look! Single quotes' ]";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "[ 'Look! Single quotes' ]";
 
-            JsonReader reader = new JsonReader(json);
-            reader.AllowSingleQuotedStrings = false;
+                JsonReader reader = new JsonReader(json);
+                reader.AllowSingleQuotedStrings = false;
 
-            JsonData data = JsonMapper.ToObject(reader);
+                JsonData data = JsonMapper.ToObject(reader);
 
-            if (data[0] == null)
-                data = JsonMapper.ToObject(reader);
+                if (data[0] == null)
+                    data = JsonMapper.ToObject(reader);
+            });
         }
 
         [Fact]

@@ -161,7 +161,7 @@ namespace LitJson.Test
         [Fact]
         public void FromFileTest()
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "json-example.txt");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "json-example.txt");
             StreamReader stream = new StreamReader(new FileStream(path, FileMode.Open));
 
             JsonReader reader = new JsonReader(stream);
@@ -192,37 +192,43 @@ namespace LitJson.Test
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void LexerErrorEscapeSequenceTest()
         {
-            string json = "[ \"Hello World \\ufffg \" ]";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "[ \"Hello World \\ufffg \" ]";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void LexerErrorRealNumberTest()
         {
-            // One ore more digits have to appear after the '.'
-            string json = "[ 0.e5 ]";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                // One ore more digits have to appear after the '.'
+                string json = "[ 0.e5 ]";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void LexerErrorTrueTest()
         {
-            string json = "[ TRUE ]";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "[ TRUE ]";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
@@ -279,13 +285,16 @@ namespace LitJson.Test
         }
 
         [Fact]
-        //[ExpectedException(typeof(ArgumentNullException))]
         public void NullReaderTest()
         {
-            TextReader text_reader = null;
-            JsonReader reader = new JsonReader(text_reader);
+            Assert.Throws(typeof(ArgumentNullException), () =>
+            {
 
-            while (reader.Read()) ;
+                TextReader text_reader = null;
+                JsonReader reader = new JsonReader(text_reader);
+
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
@@ -303,60 +312,70 @@ namespace LitJson.Test
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ParserErrorArrayClosingTest()
         {
-            string json = "[ 1, 2, 3 }";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "[ 1, 2, 3 }";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ParserErrorIncompleteObjectTest()
         {
-            string json = "{ \"temperature\" : 21 ";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "{ \"temperature\" : 21 ";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ParserErrorNoArrayOrObjectTest()
         {
-            string json = "true";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "true";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ParserErrorObjectClosingTest()
         {
-            string json = @"{
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = @"{
                 ""sports"": [
                     ""football"", ""baseball"", ""basketball"" ] ]";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException(typeof(JsonException))]
         public void ParserErrorPropertyExpectedTest()
         {
-            string json = "{ {\"foo\": bar} }";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "{ {\"foo\": bar} }";
 
-            JsonReader reader = new JsonReader(json);
+                JsonReader reader = new JsonReader(json);
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
@@ -420,7 +439,9 @@ namespace LitJson.Test
         //[ExpectedException (typeof (JsonException))]
         public void StrictCommentsTest()
         {
-            string json = @"
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = @"
                 [
                     // This is a comment
                     1,
@@ -428,22 +449,25 @@ namespace LitJson.Test
                     3
                 ]";
 
-            JsonReader reader = new JsonReader(json);
-            reader.AllowComments = false;
+                JsonReader reader = new JsonReader(json);
+                reader.AllowComments = false;
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
-        //[ExpectedException (typeof (JsonException))]
         public void StrictStringsTest()
         {
-            string json = "[ 'Look! Single quotes' ]";
+            Assert.Throws(typeof(JsonException), () =>
+            {
+                string json = "[ 'Look! Single quotes' ]";
 
-            JsonReader reader = new JsonReader(json);
-            reader.AllowSingleQuotedStrings = false;
+                JsonReader reader = new JsonReader(json);
+                reader.AllowSingleQuotedStrings = false;
 
-            while (reader.Read()) ;
+                while (reader.Read()) ;
+            });
         }
 
         [Fact]
