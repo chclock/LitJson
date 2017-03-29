@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Authors>chclock</Authors>
+    <Description>Json Library for the .Net Core</Description>
   </PropertyGroup>
 
 </Project>
