@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <Authors>chclock</Authors>
     <Description>Json Library for the .Net Core</Description>
+    <AssemblyName>LitJsonCore</AssemblyName>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

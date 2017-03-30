@@ -4,4 +4,6 @@
 2. 监测工具`Benchmarks`计划中
 3. 将单元测试迁移至`Xunit`，目前已全部通过
 
-原项目地址: https://github.com/lbv/litjson
+原项目地址:  https://github.com/lbv/litjson
+
+`Nuget`地址:  https://www.nuget.org/packages/LitJsonCore
